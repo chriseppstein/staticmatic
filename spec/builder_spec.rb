@@ -1,25 +1,21 @@
 require File.join(File.dirname(__FILE__), "..", "lib", "staticmatic")
-require 'rubigen'
-require 'rubigen/scripts/generate'
+require 'templater'
 
 describe StaticMatic::Builder do
   def generate_site(path)
   end
   
-  before :all do 
-    source = RubiGen::PathSource.new(:application, File.join(File.dirname(__FILE__), "../app_generators"))
-    RubiGen::Base.reset_sources
-    RubiGen::Base.append_sources source
-  end
-  
   before :each do
     @root_dir    = File.dirname(__FILE__) + "/fixtures/builder-test"
+    
+    orig_stdout = STDOUT.dup
+    STDOUT.reopen('/dev/null') # redirect stdout to /dev/null
+    StaticMatic::Generators.run_cli(File.dirname(@root_dir), 'staticmatic', 1, ["setup", File.basename(@root_dir)])
+    STDOUT.reopen(orig_stdout) # restore stdout
+    
     @staticmatic = StaticMatic::Base.new(@root_dir)
-    
     @staticmatic.logger = mock("logger")
-    @staticmatic.logger.should_receive(:info).at_least(:once)
-    
-    RubiGen::Scripts::Generate.new.run([@root_dir, "--quiet"], :generator => 'staticmatic')
+#    @staticmatic.logger.should_receive(:info).at_least(:once)
     StaticMatic::Builder.build(@staticmatic)
   end
   

@@ -1,6 +1,7 @@
 module StaticMatic
   autoload :Builder,     'staticmatic/builder'
   autoload :Config,      'staticmatic/config'
+  autoload :Generators,  'staticmatic/generators'
   autoload :Deprecation, 'staticmatic/deprecation'
   autoload :Previewer,   'staticmatic/previewer'
   autoload :Rescue,      'staticmatic/rescue'

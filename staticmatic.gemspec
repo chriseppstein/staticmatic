@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
                 "lib/staticmatic/builder.rb",
                 "lib/staticmatic/config.rb",
                 "lib/staticmatic/deprecation.rb",
+                "lib/staticmatic/generators.rb",
                 "lib/staticmatic/previewer.rb",
                 "lib/staticmatic/rescue.rb",
                 "lib/staticmatic/actionpack_support/mime.rb",
