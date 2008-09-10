@@ -15,7 +15,7 @@ describe StaticMatic::Builder do
     
     @staticmatic = StaticMatic::Base.new(@root_dir)
     @staticmatic.logger = mock("logger")
-#    @staticmatic.logger.should_receive(:info).at_least(:once)
+    @staticmatic.logger.should_receive(:info).at_least(:once)
     StaticMatic::Builder.build(@staticmatic)
   end
   

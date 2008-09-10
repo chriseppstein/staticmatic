@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
                 "vendor/html-scanner/html/tokenizer.rb",
                 "vendor/html-scanner/html/version.rb"]
   s.executables = %w(staticmatic)
-  s.add_dependency("templater")
+  s.add_dependency("templater",     ">=0.2")
   s.add_dependency("mongrel")
   s.add_dependency("haml",          ">=2.0.1")
   s.add_dependency("actionpack",    ">=2.1.0")
