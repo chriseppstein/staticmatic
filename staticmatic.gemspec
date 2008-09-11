@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.email    = "tdreyno@gmail.com"
   s.homepage = "http://github.com/stephenbartholomew/staticmatic"
   s.summary  = "Static sites, the Rails Way"
+  s.files = Dir.glob("**/**/**/**/**")
   s.executables = %w(staticmatic)
   s.add_dependency("templater",     ">=0.2")
   s.add_dependency("mongrel")
