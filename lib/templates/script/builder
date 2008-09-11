@@ -1,3 +1,0 @@
-#!/usr/bin/env ruby
-require 'staticmatic'
-StaticMatic::Builder.build(File.dirname(__FILE__) + "../")

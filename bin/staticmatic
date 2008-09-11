@@ -2,4 +2,4 @@
 
 require 'rubygems'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'staticmatic', 'generators')
-StaticMatic::Generators.run_cli(Dir.pwd, 'staticmatic', 1, ARGV)
+StaticMatic::Generators.run_cli(Dir.pwd, 'staticmatic', 1, ["setup"].concat(ARGV))
