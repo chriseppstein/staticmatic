@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "staticmatic"
-  s.version  = "2.1.2"
+  s.version  = "2.1.3"
   s.date     = "2008-09-11"
   s.authors  = ["Stephen Bartholomew", "Thomas Reynolds"]
   s.email    = "tdreyno@gmail.com"

@@ -11,9 +11,8 @@ module StaticMatic
       path_info   = request.params[Mongrel::Const::PATH_INFO].chomp("/")
       get_or_head = %w(GET HEAD).include? request.params[Mongrel::Const::REQUEST_METHOD]
       
-      if get_or_head and @files.can_serve(path_info)
-        @files.process(request, response) # try to serve static file from site dir
-      elsif @staticmatic.can_render? path_info  
+
+      if @staticmatic.can_render? path_info  
         file_ext = File.extname(path_info).gsub(/^\./, '')
         response.start(200) do |head, out|
           output = if (file_ext == "css")
@@ -30,6 +29,8 @@ module StaticMatic
           head[Mongrel::Const::CONTENT_TYPE] = Mongrel::DirHandler::MIME_TYPES[".#{file_ext}"] || "application/octet-stream"
           out.write(output || "")
         end
+      elsif get_or_head && @files.can_serve(path_info)
+        @files.process(request, response) # try to serve static file from site dir
       end
     end
     
